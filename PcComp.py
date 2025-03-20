@@ -22,16 +22,19 @@ class Component:
 # Создаю метод для вывода информации о компонентах
     def get_info(self):
 # Вывод информации
-        return (f"Материнская плата: {self.motherboard_model}, "f"Блок питания: {self.power_unit_model}, "
-                f"Порт блока питания: {self.power_unit_port}, " f"Сокет материнской платы: {self.motherboard_socket}, "
+        return (f"Материнская плата: {self.motherboard_model},\n "f"Блок питания: {self.power_unit_model}, \n"
+                f"Порт блока питания: {self.power_unit_port}, \n" f"Сокет материнской платы: {self.motherboard_socket}, \n"
                 f"Порт напряжения материнской платы: {self.motherboard_voltage_port}")
 
 # Создаю метод для проверка совместимости
     def check_compatibility(self):
         if self.motherboard_voltage_port == self.power_unit_port:
-            print("Совпадают")
+             print(f"Проверка совместимости портов: порты совместимы")
         else:
-            print("Не Совпадают")
+            print(f"Проверка совместимости портов: порты не совместимы")
+
+    def __del__(self):
+        pass
 
 # Создаю дочерний класс Processor
 class Processor(Component):
@@ -48,48 +51,14 @@ class Processor(Component):
     def get_info(self):       
         base_info = super().get_info()      # Вызывает метод родительского класса для получения информации
 # Выводим информацию о процессоре
-        return (f"{base_info}, "f"Процессор: {self.processor_model}, "f"Количество ядер: {self.core_count}, "  
+        return (f"Характеристики процессора:"  f"{base_info}, "f"Процессор: {self.processor_model}, "f"Количество ядер: {self.core_count}, "  
                 f"Потребление энергии: {self.power_consumption}W, "f"Сокет процессора: {self.socket}")
 
     def check_system_compatibility(self):
-        if self.socket == self.motherboard_socket:
-            return True         # Если совпадают, возвращаем True
-        return False            # Если не совпадают, возвращаем False
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        if self.motherboard_socket == self.socket:
+            print (f" Проверка совместимости сокетов: сокеты совместимы")
+        else:
+            print (f" Проверка совместимости сокетов: сокеты не совместимы")
 
 
 
