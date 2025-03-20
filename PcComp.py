@@ -51,8 +51,8 @@ class Processor(Component):
     def get_info(self):       
         base_info = super().get_info()      # Вызывает метод родительского класса для получения информации
 # Выводим информацию о процессоре
-        return (f"Характеристики процессора:"  f"{base_info}, "f"Процессор: {self.processor_model}, "f"Количество ядер: {self.core_count}, "  
-                f"Потребление энергии: {self.power_consumption}W, "f"Сокет процессора: {self.socket}")
+        return (f"{base_info},\n "f"Процессор: {self.processor_model},\n "f"Количество ядер: {self.core_count},\n "  
+                f"Потребление энергии: {self.power_consumption},\n "f"Сокет процессора: {self.socket}")
 
     def check_system_compatibility(self):
         if self.motherboard_socket == self.socket:
